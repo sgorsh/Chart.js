@@ -70,7 +70,7 @@ All point* properties can be specified as an array. If these are set to an array
 | `pointHoverRadius` | `Number/Number[]` | The radius of the point when hovered.
 | `showLine` | `Boolean` | If false, the line is not drawn for this dataset.
 | `spanGaps` | `Boolean` | If true, lines will be drawn between points with no or null data. If false, points with `NaN` data will create a break in the line
-| `steppedLine` | `Boolean` | If true, the line is shown as a stepped line and 'lineTension' will be ignored.
+| `steppedLine` | `Boolean/String` | If the line is shown as a stepped line. [more...](#stepped-line)
 
 ### cubicInterpolationMode
 The following interpolation modes are supported:
@@ -106,6 +106,15 @@ The style of point. Options are:
 
 If the option is an image, that image is drawn on the canvas using [drawImage](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage).
 
+### Stepped Line
+The following values are supported for `steppedLine`:
+* `false`:  No Step Interpolation (default)
+* `true`: Step-before Interpolation (eq. 'before')
+* `'before'`: Step-before Interpolation
+* `'after'`: Step-after Interpolation
+
+If the `steppedLine` value is set to anything other than false, `lineTension` will be ignored.
+
 ## Configuration Options
 
 The line chart defines the following configuration options. These options are merged with the global chart configuration options, `Chart.defaults.global`, to form the options passed to the chart.
@@ -133,7 +142,7 @@ The `data` property of a dataset for a line chart can be passed in two formats.
 data: [20, 10]
 ```
 
-When the `data` array is an array of numbers, the x axis is generally a [category](../axes/cartesian/category.md#Category Axis). The points are placed onto the axis using their position in the array.
+When the `data` array is an array of numbers, the x axis is generally a [category](../axes/cartesian/category.md#Category Axis). The points are placed onto the axis using their position in the array. When a line chart is created with a category axis, the `labels` property of the data object must be specified.
 
 ### Point[]
 
