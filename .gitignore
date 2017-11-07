@@ -3,6 +3,8 @@
 /custom
 /dist
 /docs/index.md
+/gh-pages
+/jsdoc
 /node_modules
 .DS_Store
 .idea
